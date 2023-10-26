@@ -61,7 +61,7 @@ const contentData = {
     experience: `
         <div style='display: grid; grid-template: auto / 1fr 1fr; user-select: none;'>
                 <div style='margin: 0 15px;'>
-                    <u  id="dataScienceJob" style='font-size: 25px; color: rgba(54, 162, 235, 0.5);' class='pointer'><strong>Data Science / Credit Risk Consultant (2015 - )</strong></u>
+                    <strong><u  id="dataScienceJob" style='font-size: 25px; color: rgba(54, 162, 235, 0.5);' class='pointer'>Data Science / Credit Risk Consultant (2015 - )</u></strong>
                     <br>
                     <strong>Projects:</strong>
                     <br>
@@ -102,7 +102,7 @@ const contentData = {
                     <br>
                     <br>
 
-                    <u style='font-size: 25px; color: rgba(54, 162, 235, 0.5);' id="CreditRiskJob" class='pointer'><strong>Credit Risk Analyst, Manager, Head of Retail Risk (2006 - 2015)</strong></u>
+                    <strong><u style='font-size: 25px; color: rgba(54, 162, 235, 0.5);' id="CreditRiskJob" class='pointer'>Credit Risk Analyst, Manager, Head of Retail Risk (2006 - 2015)</u></strong>
                     <br>
                     <strong>Various Banks</strong>
                 </div>
@@ -494,6 +494,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const popup = document.getElementById('small-popup');
                 popup.style.display = 'none';
             }
+            // when clicking outside of the popup, hide it
+            document.addEventListener('click', function(e) {
+                if (e.target.id !== 'info-popup' && e.target.id !== 'small-popup' && e.target.className !== 'pointer') {
+                    hidePopup();
+                    hideSmallPopup();
+                }
+            });
             if (section === 'experience') {
                 
                     const dataScienceJob = document.getElementById('dataScienceJob');

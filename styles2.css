@@ -72,7 +72,9 @@ button.active {
     align-items: center;
     font-size: 20px;
     line-height: 1.5;
+    overflow-y: scroll;
 }
+
 
 ul {
     list-style-type: none;
@@ -176,5 +178,31 @@ li:last-child {
 
     #contentBox canvas {
         max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* Existing styles */
+
+    .content-box {
+        flex-direction: column;
+        padding: 10px;
+        height: auto; /* or set a specific height e.g., height: 300px; */
+        max-height: 80vh; /* limiting to 80% of viewport height for better appearance */
+        overflow-y: auto;
+        word-wrap: break-word;
+        position: relative; /* to ensure contained position */
+    }
+
+    .content-box * {
+        margin: 0; /* Resetting margins */
+    }
+
+    .content-box p, .content-box h1, .content-box h2 {
+        margin-bottom: 10px; /* Giving spacing between elements */
+    }
+    .content-box > * {
+        margin-top: 700px;
+        position: static;
     }
 }
